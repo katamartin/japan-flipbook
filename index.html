@@ -19,17 +19,141 @@
         	}
           h1 {
             font-family: 'Merriweather', serif;
+            font-size: 40px;
+            margin-left: 1em;
+          }
+          p {
+            line-height: 2;
+            max-width: 40em;
+            padding: 1em;
+            margin: 0 auto;
+          }
+          .description {
+            font-size: 20px;
+            line-height: 2;
+            margin-left: 2em;
+          }
+          .flipbook {
+            padding: 2em;
           }
         </style>
         <link href="https://fonts.googleapis.com/css?family=Lato|Merriweather" rel="stylesheet">
 	</head>
 	<body>
 		<article>
-			<h1>My Flipbook</h1>
-			<p class='description'>Playing with <a href='https://github.com/russellgoldenberg/flipbook.js'>flipbook.js</a></p>
+			<h1>Kata Martin's Travel Blog</h1>
+			<div class="description">Just kidding! I got back a month ago.</div>
+			<div class='description'>Playing with <a target="_blank" noopener noreferrer href='https://github.com/russellgoldenberg/flipbook.js'>flipbook.js</a>.</div>
+      <p>
+        In the spring of 2018, I went to Japan for five weeks. This was my first
+        time visitng Japan and Asia in general. I spent the first three weeks of
+        the trip traveling by myself in Miyazaki Prefecture. Traveling is a
+        generous name for what I did during those weeks, as I barely left the
+        surftown I was visiting, Aoshima. After these weeks spent alone, I met
+        up with a friend from highschool, and we traveled to Tokyo, Kyoto, Nara,
+        and Osaka together.
+      </p>
+      <p>
+        When I returned to the U.S., I shared stories and snacks with my mom,
+        who was eager to hear about my trip. Only taking photos on my iPhone, I
+        struggled to find a good way to communicate my experience with her.
+        So... this is for you, mom!
+      </p>
+			<p>
+				My first couple of hours in Japan were pretty shocking. I took the
+				Narita Express into Tokyo, where I would stay for my first night before
+				leaving for Aoshima. Exiting Tokyo Station for the first time was
+				surreal, so much so that I felt I had to take a photo to capture the
+				moment.
+			</p>
+			<div id="building" class="flipbook"></div>
+			<p>
+				I spent the night wandering around Akasaka, stopping in everyone of the
+				big three convenience store chains: 7-Eleven, Lawson's, and Family Mart.
+				The following morning, fueled by jetlag, I got up around 5:00am and
+				walked over to Roppongi Hills where nothing was open and the Tokyo
+				morning haze was on display.
+			</p>
+			<p>
+				I made my way over to Haneda to catch my flight to Miyazaki. It was here
+				where I first came to understand the excellence of Japanese travel hubs.
+				The terminals themselves are not too remarkable, with minimal gates and
+				short security lines. However, before entering security, travelers and
+				their loved ones can enjoy an entire MALL of cafes, bookstores, omiage
+				shops, and full-blown restaurants. At Narita and the Miyazaki airports,
+				I also found observation decks where you can watch the planes take off.
+				This time leaving from Haneda, I had my first real Japanese restaurant
+				experience. I got a bento ebi tendon and zaru soba from a restaurant
+				that advertised this meal with plastic replicas in its window.
+			</p>
+			<p>
+				With some difficulty, I took a taxi from the Miyazaki airport to the
+				Aoshima guest house where I would be staying for the next three weeks. I
+				was immediately struck by the floral, jasmine-like smell in the air and
+				the picturesque sight of the beach. I was greeted by the owner of the
+				guesthouse, and was taken to meet the manager (German) and two other
+				guesthouse staff (Mexican and Canadian).
+			</p>
+			<p>
+				Aoshima and Miyazaki City in particular were really interesting to
+				experience. I think that they don't fit neatly into the relatively
+				limited picture of Japan that most Americans have. The area has tropical
+				plants, huge paved roads and highways, car dealerships, skateparks,
+				chain restaurants, and lots of big Aeon shopping centers. On a
+				particularly suburban-America-feeling day, I visited a skatepark in
+				Miyazaki City with one of my housemates and his nineteen year old friend
+				who lives in the City after stopping at a McDonald's.
+			</p>
+			<div id="skate" class="flipbook"></div>
+			<p>
+				Our responsibilities at the guesthouse were pretty limited, cleaning and
+				straightening up rooms for a few hours a day, sometimes less. The owner
+				of the guesthouse took us on a weekly shopping trip - first to the
+				organic vegetable stand and then to Trial, a Walmart-like superstore.
+			</p>
+			<p>
+				We would often bike along the water to get to a beach or into the City.
+				Every ride was serene and magical, despite the loud, rusty beach
+				cruisers we rode.
+			</p>
+			<div id="bike" class="flipbook"></div>
+			<p>
+				My Aoshima lifestyle was extremely chill and cost-effective. Free
+				activities were abundant in such a naturally beautiful place during its
+				most mild time of year. In addition to bike riding, I surfed, ran along
+				the beach, read library books on my Kindle, walked back and forth to the
+				nearest 7-Eleven to buy candy, and spent countless hours enjoying the
+				generosity of the Aoshima locals. Most meals we cooked for ourselves at
+				the guesthouse. Whenever we did go out, the food was always really
+				stunningly good.
+			</p>
 		</article>
 		<script src='flipbook.min.js'></script>
 		<script>
+			flipbook({
+				id: 'building',
+				path: 'frames/building',
+				filename: '%1d',
+				extension: 'png',
+				count: 26,
+				speed: 0.8
+			});
+			flipbook({
+				id: 'skate',
+				path: 'frames/skate',
+				filename: '%1d',
+				extension: 'png',
+				count: 163,
+				speed: 0.8
+			});
+			flipbook({
+				id: 'bike',
+				path: 'frames/bike',
+				filename: '%1d',
+				extension: 'png',
+				count: 78,
+				speed: 0.8
+			});
 		</script>
 	</body>
 </html>
