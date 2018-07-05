@@ -28,6 +28,15 @@
             padding: 1em;
             margin: 0 auto;
           }
+					.loader--text {
+						line-height: 2;
+						text-align: center;
+					}
+					.loader--bar {
+						background-color: #4285f4;
+						height: 5px;
+						width: 0;
+					}
           .description {
             font-size: 20px;
             line-height: 2;
@@ -44,7 +53,7 @@
 			<h1>Japan 2018 Wrap Up</h1>
 			<div class="description">Kata spends 5 weeks in Japan</div>
 			<div class='description'>Playing with <a target="_blank" noopener noreferrer href='https://github.com/russellgoldenberg/flipbook.js'>flipbook.js</a>.</div>
-      <p>
+			<p>
         In the spring of 2018, I went to Japan for five weeks. This was my first
         time visiting Japan and Asia in general. I spent the first three weeks of
         the trip traveling by myself in Miyazaki Prefecture. Traveling is a
@@ -66,6 +75,10 @@
 				surreal, so much so that I felt I had to take a photo to capture the
 				moment.
 			</p>
+			<div id="building-loader">
+				<div class="loader--text">Loading Animation</div>
+				<div class="loader--bar"></div>
+			</div>
 			<div id="building" class="flipbook"></div>
 			<p>
 				I spent the night wandering around Akasaka, stopping in everyone of the
@@ -104,6 +117,10 @@
 				Miyazaki City with one of my housemates and his nineteen year old friend
 				who lives in the City after stopping at a McDonald's.
 			</p>
+			<div id="skate-loader">
+				<div class="loader--text">Loading Animation</div>
+				<div class="loader--bar"></div>
+			</div>
 			<div id="skate" class="flipbook"></div>
 			<p>
 				Our responsibilities at the guesthouse were pretty limited, cleaning and
@@ -116,6 +133,10 @@
 				Every ride was serene and magical, despite the loud, rusty beach
 				cruisers we rode.
 			</p>
+			<div id="bike-loader">
+				<div class="loader--text">Loading Animation</div>
+				<div class="loader--bar"></div>
+			</div>
 			<div id="bike" class="flipbook"></div>
 			<p>
 				My Aoshima lifestyle was extremely chill and cost-effective. Free
@@ -140,13 +161,26 @@
 		</article>
 		<script src='flipbook.min.js'></script>
 		<script>
+			function getFlipbookProgress(flipbookId) {
+				var progressEl = document.querySelector(`#${flipbookId}-loader .loader--bar`);
+
+				return function(data) {
+					progressEl.style.width = data.percent + '%';
+				};
+			}
+
 			flipbook({
 				id: 'building',
 				path: 'frames/building',
 				filename: '%1d',
 				extension: 'png',
 				count: 26,
-				speed: 0.8
+				speed: 0.8,
+				progress: getFlipbookProgress('building'),
+				loaded: function() {
+					var loaderEl = document.getElementById('building-loader');
+					loaderEl.parentNode.removeChild(loaderEl);
+				},
 			});
 			flipbook({
 				id: 'skate',
@@ -154,7 +188,12 @@
 				filename: '%1d',
 				extension: 'png',
 				count: 163,
-				speed: 0.8
+				speed: 0.8,
+				progress: getFlipbookProgress('skate'),
+				loaded: function() {
+					var loaderEl = document.getElementById('skate-loader');
+					loaderEl.parentNode.removeChild(loaderEl);
+				},
 			});
 			flipbook({
 				id: 'bike',
@@ -162,7 +201,12 @@
 				filename: '%1d',
 				extension: 'png',
 				count: 78,
-				speed: 0.8
+				speed: 0.8,
+				progress: getFlipbookProgress('bike'),
+				loaded: function() {
+					var loaderEl = document.getElementById('bike-loader');
+					loaderEl.parentNode.removeChild(loaderEl);
+				},
 			});
 		</script>
 	</body>
